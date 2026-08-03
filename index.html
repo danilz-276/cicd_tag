@@ -132,7 +132,7 @@
                     <div class="mb-2">
                         <label class="block text-sm font-semibold text-slate-300 mb-3">6. Chế độ mở rộng (Flags)</label>
                         <div class="space-y-3">
-                            <label id="ggWrapper"
+                            <label id="ggWrapper" style="display: none;"
                                 class="flex items-start gap-4 cursor-pointer p-4 rounded-xl border transition-all bg-slate-950/50 border-slate-800 hover:bg-slate-800/50 hover:border-slate-700">
                                 <div class="mt-0.5">
                                     <input id="useGg" type="checkbox"
@@ -296,12 +296,10 @@
                                     class="bg-slate-800 px-1.5 py-0.5 rounded text-slate-300">stg</code>, hoặc <code
                                     class="bg-slate-800 px-1.5 py-0.5 rounded text-slate-300">prod</code>.</td>
                         </tr>
-                        <tr class="hover:bg-slate-800/30 transition-colors">
-                            <td class="px-5 py-4 font-mono text-amber-500">-gg</td>
-                            <td class="px-5 py-4 text-slate-500">Không</td>
-                            <td class="px-5 py-4"><strong>Chỉ ảnh hưởng Android:</strong> Build định dạng AAB và upload
-                                trực tiếp lên Google Play. Nếu không có <code>-gg</code>, pipeline mặc định build APK và
-                                phân phối qua Firebase.</td>
+                        <tr class="hover:bg-slate-800/30 transition-colors bg-slate-900/20">
+                            <td class="px-5 py-4 font-mono text-slate-500 line-through">-gg</td>
+                            <td class="px-5 py-4 text-rose-500 font-medium">Không dùng nữa</td>
+                            <td class="px-5 py-4 text-slate-400"><strong>Đã tự động hóa:</strong> Hệ thống tự động quyết định dựa trên flavor. Nếu chọn flavor <code>prod</code> sẽ tự động build AAB đẩy lên Google Play/TestFlight. Chọn <code>dev</code> hoặc <code>stg</code> sẽ build APK đẩy lên Firebase. Bạn không cần điền hậu tố này nữa.</td>
                         </tr>
                         <tr class="hover:bg-slate-800/30 transition-colors">
                             <td class="px-5 py-4 font-mono text-rose-400">-mail</td>
@@ -344,8 +342,7 @@
         const presets = [
             { id: 'dev', label: 'Full Dev', p: '', f: 'dev', gg: false, mail: false, icon: 'code', activeClass: 'bg-blue-600 border-blue-500 text-white shadow-[0_0_15px_rgba(37,99,235,0.3)]', inactiveClass: 'bg-slate-800 text-blue-300 border-slate-700 hover:bg-blue-900/40 hover:border-blue-500 hover:text-blue-200' },
             { id: 'stg', label: 'Full Stg', p: '', f: 'stg', gg: false, mail: false, icon: 'flask-conical', activeClass: 'bg-purple-600 border-purple-500 text-white shadow-[0_0_15px_rgba(168,85,247,0.3)]', inactiveClass: 'bg-slate-800 text-purple-300 border-slate-700 hover:bg-purple-900/40 hover:border-purple-500 hover:text-purple-200' },
-            { id: 'prod', label: 'Full Prod', p: '', f: 'prod', gg: false, mail: false, icon: 'rocket', activeClass: 'bg-rose-600 border-rose-500 text-white shadow-[0_0_15px_rgba(225,29,72,0.3)]', inactiveClass: 'bg-slate-800 text-rose-300 border-slate-700 hover:bg-rose-900/40 hover:border-rose-500 hover:text-rose-200' },
-            { id: 'prod-gg', label: 'Full Prod (+ GG Play)', p: '', f: 'prod', gg: true, mail: false, icon: 'play-square', activeClass: 'bg-amber-600 border-amber-500 text-white shadow-[0_0_15px_rgba(245,158,11,0.3)]', inactiveClass: 'bg-slate-800 text-amber-300 border-slate-700 hover:bg-amber-900/40 hover:border-amber-500 hover:text-amber-200' }
+            { id: 'prod', label: 'Full Prod', p: '', f: 'prod', gg: false, mail: false, icon: 'rocket', activeClass: 'bg-rose-600 border-rose-500 text-white shadow-[0_0_15px_rgba(225,29,72,0.3)]', inactiveClass: 'bg-slate-800 text-rose-300 border-slate-700 hover:bg-rose-900/40 hover:border-rose-500 hover:text-rose-200' }
         ];
 
         const flavors = [
