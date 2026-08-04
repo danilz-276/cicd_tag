@@ -112,21 +112,26 @@
                         <input id="versionInput" type="text" placeholder="VD: 1.0.0+12"
                             class="w-full px-4 py-3 bg-slate-950 border border-slate-700 focus:ring-blue-500 focus:border-blue-500 text-slate-200 rounded-xl focus:ring-2 outline-none transition-all font-mono placeholder:text-slate-600 shadow-inner" />
                         <p id="versionHelp" class="text-xs text-slate-500 mt-2">Nếu điền, sẽ tự động ghi đè version vào
-                            <code>pubspec.yaml</code>. Bỏ trống để CI lấy version hiện tại và tự tăng build number.</p>
+                            <code>pubspec.yaml</code>. Bỏ trống để CI lấy version hiện tại và tự tăng build number.
+                        </p>
                     </div>
 
                     <div class="mb-7">
-                        <label class="block text-sm font-semibold text-slate-300 mb-3">4. Firebase Group Override - Tùy chọn</label>
+                        <label class="block text-sm font-semibold text-slate-300 mb-3">4. Firebase Group Override - Tùy
+                            chọn</label>
                         <input id="firebaseGroupInput" type="text" placeholder="VD: developdanilz"
                             class="w-full px-4 py-3 bg-slate-950 border border-slate-700 focus:ring-blue-500 focus:border-blue-500 text-slate-200 rounded-xl focus:ring-2 outline-none transition-all font-mono placeholder:text-slate-600 shadow-inner" />
-                        <p class="text-xs text-slate-500 mt-2">Sinh suffix <code>-fg-&lt;group&gt;</code> để override <code>FIREBASE_GROUP</code> theo tag.</p>
+                        <p class="text-xs text-slate-500 mt-2">Sinh suffix <code>-fg-&lt;group&gt;</code> để override
+                            <code>FIREBASE_GROUP</code> theo tag.</p>
                     </div>
 
                     <div class="mb-2">
-                        <label class="block text-sm font-semibold text-slate-300 mb-3">5. Email nhận thông báo Override - Tùy chọn</label>
+                        <label class="block text-sm font-semibold text-slate-300 mb-3">5. Email nhận thông báo Override
+                            - Tùy chọn</label>
                         <input id="notifyEmailsInput" type="text" placeholder="VD: datdnt@vietmap.vn,huynv@vietmap.vn"
                             class="w-full px-4 py-3 bg-slate-950 border border-slate-700 focus:ring-blue-500 focus:border-blue-500 text-slate-200 rounded-xl focus:ring-2 outline-none transition-all font-mono placeholder:text-slate-600 shadow-inner" />
-                        <p class="text-xs text-slate-500 mt-2">Sinh suffix <code>-to-&lt;email1,email2&gt;</code> để override người nhận mail theo tag.</p>
+                        <p class="text-xs text-slate-500 mt-2">Sinh suffix <code>-to-&lt;email1,email2&gt;</code> để
+                            override người nhận mail theo tag.</p>
                     </div>
 
                     <div class="mb-2">
@@ -166,6 +171,23 @@
                                     <div class="text-xs text-slate-400 mt-1.5 leading-relaxed">
                                         Chỉ chạy build, test và gửi mail báo cáo. <strong>BỎ QUA</strong> việc phân phối
                                         lên Firebase, TestFlight hay Google Play.
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label id="forceWrapper"
+                                class="flex items-start gap-4 cursor-pointer p-4 rounded-xl border transition-all bg-slate-950/50 border-slate-800 hover:bg-slate-800/50 hover:border-slate-700">
+                                <div class="mt-0.5">
+                                    <input id="useForce" type="checkbox"
+                                        class="w-5 h-5 text-red-500 bg-slate-900 border-slate-700 rounded focus:ring-red-500 focus:ring-offset-slate-900" />
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-slate-200 flex items-center gap-2">
+                                        <i data-lucide="zap" class="w-4 h-4 text-red-400"></i> Force Update BE Draft <code
+                                            class="text-red-400 bg-red-900/30 px-1.5 py-0.5 rounded text-xs">-force</code>
+                                    </div>
+                                    <div class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+                                        Cập nhật đè phiên bản nháp (Draft Version) lên API Backend của môi trường tương ứng sau khi hoàn tất phân phối.
                                     </div>
                                 </div>
                             </label>
@@ -299,7 +321,10 @@
                         <tr class="hover:bg-slate-800/30 transition-colors bg-slate-900/20">
                             <td class="px-5 py-4 font-mono text-slate-500 line-through">-gg</td>
                             <td class="px-5 py-4 text-rose-500 font-medium">Không dùng nữa</td>
-                            <td class="px-5 py-4 text-slate-400"><strong>Đã tự động hóa:</strong> Hệ thống tự động quyết định dựa trên flavor. Nếu chọn flavor <code>prod</code> sẽ tự động build AAB đẩy lên Google Play/TestFlight. Chọn <code>dev</code> hoặc <code>stg</code> sẽ build APK đẩy lên Firebase. Bạn không cần điền hậu tố này nữa.</td>
+                            <td class="px-5 py-4 text-slate-400"><strong>Đã tự động hóa:</strong> Hệ thống tự động quyết
+                                định dựa trên flavor. Nếu chọn flavor <code>prod</code> sẽ tự động build AAB đẩy lên
+                                Google Play/TestFlight. Chọn <code>dev</code> hoặc <code>stg</code> sẽ build APK đẩy lên
+                                Firebase. Bạn không cần điền hậu tố này nữa.</td>
                         </tr>
                         <tr class="hover:bg-slate-800/30 transition-colors">
                             <td class="px-5 py-4 font-mono text-rose-400">-mail</td>
@@ -310,12 +335,19 @@
                         <tr class="hover:bg-slate-800/30 transition-colors">
                             <td class="px-5 py-4 font-mono text-cyan-400">-fg-&lt;group&gt;</td>
                             <td class="px-5 py-4 text-slate-500">Không</td>
-                            <td class="px-5 py-4">Override runtime <code>FIREBASE_GROUP</code> theo tag build hiện tại.</td>
+                            <td class="px-5 py-4">Override runtime <code>FIREBASE_GROUP</code> theo tag build hiện tại.
+                            </td>
                         </tr>
                         <tr class="hover:bg-slate-800/30 transition-colors">
                             <td class="px-5 py-4 font-mono text-cyan-300">-to-&lt;email1,email2&gt;</td>
                             <td class="px-5 py-4 text-slate-500">Không</td>
-                            <td class="px-5 py-4">Override danh sách email nhận thông báo (<code>emailext to</code>) cho lần chạy hiện tại.</td>
+                            <td class="px-5 py-4">Override danh sách email nhận thông báo (<code>emailext to</code>) cho
+                                lần chạy hiện tại.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/30 transition-colors">
+                            <td class="px-5 py-4 font-mono text-red-400">-force</td>
+                            <td class="px-5 py-4 text-slate-500">Không</td>
+                            <td class="px-5 py-4">Cập nhật đè phiên bản nháp (Draft Version) lên API Backend của môi trường tương ứng sau khi hoàn tất phân phối.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -333,6 +365,7 @@
             notifyEmails: '',
             useGg: false,
             useMail: false,
+            useForce: false,
             generatedTag: '',
             generatedCommand: '',
             copiedTag: false,
@@ -400,6 +433,7 @@
                 }
             }
             if (state.useMail) tag += '-mail';
+            if (state.useForce) tag += '-force';
 
             state.versionError = currentVerError;
             state.generatedTag = tag;
@@ -513,13 +547,17 @@
         function renderFlags() {
             const useGg = document.getElementById('useGg');
             const useMail = document.getElementById('useMail');
+            const useForce = document.getElementById('useForce');
             const ggWrapper = document.getElementById('ggWrapper');
             const mailWrapper = document.getElementById('mailWrapper');
+            const forceWrapper = document.getElementById('forceWrapper');
 
             useGg.checked = state.useGg;
             useMail.checked = state.useMail;
+            useForce.checked = state.useForce;
             ggWrapper.className = `flex items-start gap-4 cursor-pointer p-4 rounded-xl border transition-all ${state.useGg ? 'bg-slate-800/80 border-blue-500/50' : 'bg-slate-950/50 border-slate-800 hover:bg-slate-800/50 hover:border-slate-700'}`;
             mailWrapper.className = `flex items-start gap-4 cursor-pointer p-4 rounded-xl border transition-all ${state.useMail ? 'bg-slate-800/80 border-purple-500/50' : 'bg-slate-950/50 border-slate-800 hover:bg-slate-800/50 hover:border-slate-700'}`;
+            forceWrapper.className = `flex items-start gap-4 cursor-pointer p-4 rounded-xl border transition-all ${state.useForce ? 'bg-slate-800/80 border-red-500/50' : 'bg-slate-950/50 border-slate-800 hover:bg-slate-800/50 hover:border-slate-700'}`;
         }
 
         function renderOutput() {
@@ -575,6 +613,7 @@
         document.getElementById('notifyEmailsInput').addEventListener('input', (e) => setState({ notifyEmails: e.target.value }));
         document.getElementById('useGg').addEventListener('change', (e) => setState({ useGg: e.target.checked }));
         document.getElementById('useMail').addEventListener('change', (e) => setState({ useMail: e.target.checked }));
+        document.getElementById('useForce').addEventListener('change', (e) => setState({ useForce: e.target.checked }));
         document.getElementById('copyTagBtn').addEventListener('click', () => {
             if (!state.versionError) copyToClipboard(state.generatedTag, 'tag');
         });
